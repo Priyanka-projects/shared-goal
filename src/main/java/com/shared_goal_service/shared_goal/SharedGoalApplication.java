@@ -8,6 +8,7 @@ public class SharedGoalApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SharedGoalApplication.class, args);
+		System.out.println("application started!");
 	}
 
 }

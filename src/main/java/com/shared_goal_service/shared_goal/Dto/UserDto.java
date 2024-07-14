@@ -14,4 +14,10 @@ public class UserDto {
     private String user_name;
     private int user_phone;
     private String user_email;
+
+    private boolean enabled;
+    private boolean tokenExpired;
+
+
+
 }

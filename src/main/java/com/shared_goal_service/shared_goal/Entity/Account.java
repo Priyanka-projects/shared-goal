@@ -8,9 +8,12 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class Transaction {
-
+public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private String account_no;
+    private String type;
+    private double balance;
 }

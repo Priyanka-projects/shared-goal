@@ -10,8 +10,7 @@ public class goalEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "goalID")
-    private UUID goal_id;
+    private UUID id;
     @Column(name = "goalName")
     private String goal_name;
     @Column(name = "goalDuration")

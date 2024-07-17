@@ -11,8 +11,8 @@ public class Role {
     private Long id;
 
     private String name;
-    @ManyToMany(mappedBy = "roles")
-    private List<userEntity> users;
+//    @ManyToMany(mappedBy = "roles")
+//    private List<userEntity> users;
 
     @ManyToMany
     @JoinTable(

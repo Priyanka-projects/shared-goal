@@ -1,28 +1,39 @@
 package com.shared_goal_service.shared_goal.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 @Entity
-@Table(name = "goal_Entity")
+@Setter
+@Getter
 public class goalEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-    @Column(name = "goalName")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long goal_id;
+
     private String goal_name;
-    @Column(name = "goalDuration")
+
     private int goal_duration;
-    @Column(name = "goalAmount")
+
     private double goal_amount;
-    @ManyToMany
-    @JoinTable(
-            name = "userEntity",
-            joinColumns = @JoinColumn(name = "goalID"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    @Column(name = "users")
+
+    private double amount_paid;
+
+    private LocalDate start_date;
+
+    private double interest_added;
+
+    private double interest_rate;
+
+
+
+
+    @ManyToMany(mappedBy = "goals")
+
     private List<userEntity> users;
 }

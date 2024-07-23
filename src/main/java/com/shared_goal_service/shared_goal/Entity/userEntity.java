@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Collection;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Setter
@@ -25,15 +24,9 @@ public class userEntity {
     private boolean enabled;
     private boolean tokenExpired;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "users_roles",
-//            joinColumns = @JoinColumn(
-//                    name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "role_id", referencedColumnName = "id"))
-//    private Collection<Role> roles;
-//
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<Role> roles =new ArrayList<>();
+
     @ManyToMany
     @JoinTable(
             name= "users_goals",

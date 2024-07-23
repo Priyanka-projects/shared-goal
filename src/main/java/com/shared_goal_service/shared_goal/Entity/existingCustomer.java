@@ -15,9 +15,8 @@ public class existingCustomer {
 
     private String cust_name;
     private String login_password;
-    private List<String> account;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
-    private Account acount;
+    private Account account;
 }

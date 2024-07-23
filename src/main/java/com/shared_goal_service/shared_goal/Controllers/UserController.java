@@ -29,7 +29,7 @@ public class UserController {
            return ResponseEntity.status(HttpStatus.OK).body(ud);
         }
         catch (Exception e){
-            return new ResponseEntity<>(HttpStatusCode.valueOf(500));
+            return ResponseEntity.status(HttpStatus.MULTI_STATUS).body(e.fillInStackTrace());
         }
     }
 

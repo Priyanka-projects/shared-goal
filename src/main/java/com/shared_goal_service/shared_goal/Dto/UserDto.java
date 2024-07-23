@@ -1,10 +1,12 @@
 package com.shared_goal_service.shared_goal.Dto;
 
+import com.shared_goal_service.shared_goal.Entity.Role;
 import com.shared_goal_service.shared_goal.Entity.goalEntity;
 import com.shared_goal_service.shared_goal.Entity.userEntity;
 import lombok.*;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,12 +22,12 @@ public class UserDto {
     private String password;
     private boolean enabled;
     private boolean tokenExpired;
-
+    private Collection<Role> roles;
     private Collection<goalEntity> goals;
 
     public static UserDto convertUserEntityToDto(userEntity u)
     {
-        UserDto userdto = new UserDto(u.getId(),u.getUser_name(),u.getUser_phone(),u.getUser_email(),u.getPassword(),u.isEnabled(),u.isTokenExpired(),u.getGoals());
+        UserDto userdto = new UserDto(u.getId(),u.getUser_name(),u.getUser_phone(),u.getUser_email(),u.getPassword(),u.isEnabled(),u.isTokenExpired(),u.getRoles(),u.getGoals());
         return userdto;
     }
 
@@ -39,6 +41,7 @@ public class UserDto {
         userentity.setUser_name(ud.getPassword());
         userentity.setEnabled(ud.isEnabled());
         userentity.setTokenExpired(ud.isTokenExpired());
+        userentity.setRoles(ud.getRoles());
         userentity.setGoals(ud.getGoals());
 
         return userentity;

@@ -1,12 +1,12 @@
 package com.shared_goal_service.shared_goal.Dto;
 
 import com.shared_goal_service.shared_goal.Entity.Role;
-import com.shared_goal_service.shared_goal.Entity.goalEntity;
-import com.shared_goal_service.shared_goal.Entity.userEntity;
+import com.shared_goal_service.shared_goal.Entity.GoalEntity;
+import com.shared_goal_service.shared_goal.Entity.UserEntity;
 import lombok.*;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,34 +15,33 @@ import java.util.UUID;
 @ToString
 public class UserDto {
 
-    private UUID id;
-    private String user_name;
-    private String user_phone;
-    private String user_email;
+    private Long id;
+    private String username;
+    private String userphone;
+    private String useremail;
     private String password;
     private boolean enabled;
-    private boolean tokenExpired;
-    private Collection<Role> roles;
-    private Collection<goalEntity> goals;
 
-    public static UserDto convertUserEntityToDto(userEntity u)
+    private Set<Role> roles ;
+    private GoalEntity goal;
+
+    public static UserDto convertUserEntityToDto(UserEntity u)
     {
-        UserDto userdto = new UserDto(u.getId(),u.getUser_name(),u.getUser_phone(),u.getUser_email(),u.getPassword(),u.isEnabled(),u.isTokenExpired(),u.getRoles(),u.getGoals());
+        UserDto userdto = new UserDto(u.getId(),u.getUsername(),u.getUserphone(),u.getUseremail(),u.getPassword(),u.isEnabled(),u.getRoles(),u.getGoal());
         return userdto;
     }
 
-    public userEntity convertUserDtoToEntity(UserDto ud)
+    public UserEntity convertUserDtoToEntity(UserDto ud)
     {
-        userEntity userentity = new userEntity();
+        UserEntity userentity = new UserEntity();
         userentity.setId(ud.getId());
-        userentity.setUser_name(ud.getUser_name());
-        userentity.setUser_email(ud.getUser_email());
-        userentity.setUser_phone(ud.getUser_phone());
-        userentity.setUser_name(ud.getPassword());
+        userentity.setUsername(ud.getUsername());
+        userentity.setUseremail(ud.getUseremail());
+        userentity.setUserphone(ud.getUserphone());
+        userentity.setPassword(ud.getPassword());
         userentity.setEnabled(ud.isEnabled());
-        userentity.setTokenExpired(ud.isTokenExpired());
         userentity.setRoles(ud.getRoles());
-        userentity.setGoals(ud.getGoals());
+        userentity.setGoal(ud.getGoal());
 
         return userentity;
     }

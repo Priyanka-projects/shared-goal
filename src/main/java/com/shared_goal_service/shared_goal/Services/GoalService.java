@@ -1,12 +1,13 @@
 package com.shared_goal_service.shared_goal.Services;
 
-import com.shared_goal_service.shared_goal.Entity.goalEntity;
-import com.shared_goal_service.shared_goal.Entity.userEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import com.shared_goal_service.shared_goal.Entity.GoalEntity;
+
+import java.util.Optional;
 
 
 public interface GoalService {
 
-    goalEntity saveGoalData(goalEntity user);
+    GoalEntity saveGoalData(GoalEntity user);
+
+    Optional<GoalEntity> findById(Long Id);
 }

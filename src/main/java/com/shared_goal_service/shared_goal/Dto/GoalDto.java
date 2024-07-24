@@ -1,13 +1,10 @@
 package com.shared_goal_service.shared_goal.Dto;
 
-import com.shared_goal_service.shared_goal.Entity.goalEntity;
-import com.shared_goal_service.shared_goal.Entity.userEntity;
-import jakarta.persistence.Column;
+import com.shared_goal_service.shared_goal.Entity.GoalEntity;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor
@@ -18,28 +15,28 @@ import java.util.stream.Collectors;
 public class GoalDto {
     private Long goal_id;
 
-    private String goal_name;
+    private String goalname;
 
-    private int goal_duration;
+    private int goalduration;
 
-    private double goal_amount;
+    private double goalamount;
 
-    private double amount_paid;
+    private double amountpaid;
 
-    private LocalDate start_date;
+    private LocalDate startdate;
 
-    private double interest_added;
+    private double interestadded;
 
-    private double interest_rate;
+    private double interestrate;
 
-    private List<UserDto> users;
 
-    public static GoalDto convertGoalEntityToDto(goalEntity g)
+
+    public static GoalDto convertGoalEntityToDto(GoalEntity g)
     {
-        return new GoalDto(g.getGoal_id(),g.getGoal_name(),g.getGoal_duration(),g.getGoal_amount(),g.getAmount_paid(),g.getStart_date(),g.getInterest_added(),g.getInterest_rate(),g.getUsers().stream().map(UserDto::convertUserEntityToDto).collect(Collectors.toList()));
+        return new GoalDto(g.getGoal_id(),g.getGoalname(),g.getGoalduration(),g.getGoalamount(),g.getAmountpaid(),g.getStartdate(),g.getInterestadded(),g.getInterestrate());
     }
 
-    public goalEntity convertGoalDtoToEntity(GoalDto gd)
+    public GoalEntity convertGoalDtoToEntity(GoalDto gd)
     {
 
         return null;

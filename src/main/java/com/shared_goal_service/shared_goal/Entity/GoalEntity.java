@@ -5,35 +5,34 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
+
 @Entity
+@Table(name = "goals")
 @Setter
 @Getter
-public class goalEntity {
+public class GoalEntity {
 
     @Id
+    @Column(name = "goal_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long goal_id;
 
-    private String goal_name;
+    private String goalname;
 
-    private int goal_duration;
+    private int goalduration;
 
-    private double goal_amount;
+    private double goalamount;
 
-    private double amount_paid;
+    private double amountpaid;
 
-    private LocalDate start_date;
+    private LocalDate startdate;
 
-    private double interest_added;
+    private double interestadded;
 
-    private double interest_rate;
-
-
+    private double interestrate;
 
 
-    @ManyToMany(mappedBy = "goals")
 
-    private List<userEntity> users;
+
+
 }

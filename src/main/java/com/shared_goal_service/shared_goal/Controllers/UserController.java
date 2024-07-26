@@ -103,6 +103,19 @@ public class UserController {
         }
     }
 
+    @GetMapping("/user/details")
+    public ResponseEntity getUserDetails(@RequestParam String username) {
+        try {
+            UserEntity user = userService.getUserByUsername(username);
+            if (user == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            }
+            UserDto userDto = UserDto.convertUserEntityToDto(user);
+            return ResponseEntity.status(HttpStatus.OK).body(userDto);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
 
    //this is to test the auth no logic here
     @GetMapping("/view/goal")

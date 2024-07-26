@@ -38,4 +38,9 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity> getAllUserByGoalid(Long goalid) {
         return userDao.getAllUsersByGoalId(goalid);
     }
+
+    @Override
+    public UserEntity getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
 }

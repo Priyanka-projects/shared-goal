@@ -11,4 +11,5 @@ public interface UserService {
     UserEntity updateUserData(UserEntity user);
     void deleteUserData(Long id);
     List<UserEntity> getAllUserByGoalid(Long goalid);
+    UserEntity getUserByUsername(String username);
 }

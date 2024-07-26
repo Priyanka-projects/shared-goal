@@ -35,7 +35,7 @@ public class WebSecurityConfig {
 
     @Bean
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        http
+        return http
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
@@ -46,9 +46,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/viewall/**").hasAuthority("ADMIN")
                         .requestMatchers("/user/addUser").permitAll()
                         .anyRequest().authenticated()
-                ).httpBasic(Customizer.withDefaults());;
-
-        return http.build();
+                ).httpBasic(Customizer.withDefaults()).build();
     }
 
 }
